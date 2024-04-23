@@ -35,7 +35,6 @@ const Tabpanels = ({ tabs }: Props): ReactElement => {
       </TabPanel>
 
       <TabPanel value={value} index={1}>
-        <h1>Discover more</h1>
         <DiscoverList />
       </TabPanel>
     </Box>

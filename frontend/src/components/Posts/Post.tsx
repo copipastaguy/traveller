@@ -1,8 +1,7 @@
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
 import ChatIcon from "@mui/icons-material/Chat";
 import PlaceIcon from "@mui/icons-material/Place";
-import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Stack, Typography } from "@mui/material";
+import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Divider, IconButton, Input, InputBase, Paper, Stack, Typography } from "@mui/material";
 import { ReactElement } from "react";
 
 type Props = {
@@ -23,15 +22,17 @@ const Post = ({ username, imageURL, caption, likes, comments, posted, location }
       </CardHeader>
 
       <CardContent>
-        <Stack direction="row" spacing={2}>
-          <PlaceIcon />
-          {location}
+        <Stack spacing={2}>
+          <Stack direction="row" spacing={2}>
+            <PlaceIcon />
+            {location}
+          </Stack>
+
+          <Typography>{caption}</Typography>
+
+          <CardMedia component="img" height="50%" image={imageURL} sx={{ borderRadius: "10px" }} />
         </Stack>
-
-        <Typography>{caption}</Typography>
       </CardContent>
-
-      <CardMedia component="img" height="50%" image={imageURL} />
 
       <CardActions>
         <Stack direction="row" spacing={1} alignItems="center">
@@ -48,6 +49,17 @@ const Post = ({ username, imageURL, caption, likes, comments, posted, location }
           <Typography variant="caption">{comments}</Typography>
         </Stack>
       </CardActions>
+
+      <Divider />
+
+      <CardContent>
+        <Stack direction="row" spacing={2}>
+          <Avatar />
+          <Paper variant="outlined" sx={{ width: "80%", padding: "5px", borderRadius: "10px" }}>
+            <InputBase sx={{ width: "100%" }} placeholder="Write your comment" />
+          </Paper>
+        </Stack>
+      </CardContent>
     </Card>
   );
 };
