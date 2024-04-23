@@ -5,7 +5,7 @@ type Props = {};
 
 const Searchbar = (props: Props) => {
   return (
-    <Paper sx={{ width: "30%", borderRadius: "10px", display: "flex", alignItems: "center" }}>
+    <Paper sx={{ width: "50%", borderRadius: "10px", display: "flex", alignItems: "center" }}>
       <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
         <SearchIcon />
       </IconButton>

@@ -1,13 +1,14 @@
-import { Avatar, Box, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 import { ReactElement } from "react";
-import Searchbar from "../components/Searchbar/Searchbar";
-import Sidebar from "../components/Sidebar/Sidebar";
+import NavigationBar from "../components/NavigationBar/NavigationBar";
+
 import Tabpanels from "../components/Tabs/Tabs";
 
 const Homepage = (): ReactElement => {
   const tabs = ["Friends", "Discover"];
   return (
-    <Box sx={{ padding: "10px", backgroundColor: "#e9ecef" }}>
+    <Box sx={{ padding: "2%", backgroundColor: "#e9ecef" }}>
+      <NavigationBar />
       <Tabpanels tabs={tabs} />
     </Box>
   );
