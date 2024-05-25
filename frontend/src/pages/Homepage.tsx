@@ -1,15 +1,20 @@
-import { Box } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { ReactElement } from "react";
-import NavigationBar from "../components/NavigationBar/NavigationBar";
-
+import Searchbar from "../components/Searchbar/Searchbar";
 import Tabpanels from "../components/Tabs/Tabs";
+import FriendsPostsList from "../components/Posts/PostsList/FriendsPostsList";
 
 const Homepage = (): ReactElement => {
   const tabs = ["Friends", "Discover"];
   return (
-    <Box sx={{ padding: "2%", backgroundColor: "#e9ecef" }}>
-      <NavigationBar />
-      <Tabpanels tabs={tabs} />
+    <Box sx={{ padding: "10px" }}>
+      <Stack justifyContent="center" direction="row" padding={2}>
+        <Searchbar />
+      </Stack>
+
+      <FriendsPostsList />
+
+      {/* <Tabpanels tabs={tabs} /> */}
     </Box>
   );
 };
