@@ -1,20 +1,23 @@
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShareIcon from "@mui/icons-material/Share";
 import ChatIcon from "@mui/icons-material/Chat";
 import PlaceIcon from "@mui/icons-material/Place";
-import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Divider, IconButton, Input, InputBase, Paper, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Button, Card, CardActions, CardContent, CardHeader, Divider, IconButton, Input, InputBase, Paper, Stack, Typography } from "@mui/material";
 import { ReactElement } from "react";
+import Carousel from "react-material-ui-carousel";
 
 type Props = {
   username: string;
-  imageURL: string;
+  imageURL: string[];
   caption: string;
   likes: number;
-  comments?: number;
   posted: string;
   location: string;
+  saved: number;
 };
 
-const Post = ({ username, imageURL, caption, likes, comments, posted, location }: Props): ReactElement => {
+const Post = ({ username, caption, likes, posted, location, saved, imageURL }: Props): ReactElement => {
   return (
     <Card variant="outlined" sx={{ maxWidth: 700, borderRadius: 5 }}>
       <CardHeader avatar={<Avatar>Me</Avatar>} title={username} subheader={posted}>
@@ -22,31 +25,39 @@ const Post = ({ username, imageURL, caption, likes, comments, posted, location }
       </CardHeader>
 
       <CardContent>
-        <Stack spacing={2}>
-          <Stack direction="row" spacing={2}>
-            <PlaceIcon />
-            {location}
-          </Stack>
-
-          <Typography>{caption}</Typography>
-
-          <CardMedia component="img" height="50%" image={imageURL} sx={{ borderRadius: "10px" }} />
+        <Stack direction="row" spacing={2}>
+          <PlaceIcon />
+          {location}
         </Stack>
+
+        <Typography>{caption}</Typography>
+      </CardContent>
+
+      <Carousel autoPlay={false} animation="slide">
+        {imageURL.map((image, index) => {
+          return <Box component="img" src={image} height={400} width="100%" key={index} />;
+        })}
+      </Carousel>
+
+      <CardContent>
+        <Typography fontSize={14}>{caption}</Typography>
       </CardContent>
 
       <CardActions>
-        <Stack direction="row" spacing={1} alignItems="center">
-          <IconButton>
-            <FavoriteIcon fontSize="small" />
-          </IconButton>
-          <Typography variant="caption">{likes}</Typography>
-        </Stack>
+        <Stack direction="row" alignItems="center" justifyContent="space-between" width="100%">
+          <Box>
+            <IconButton>
+              <FavoriteIcon fontSize="small" />
+            </IconButton>
+            <Typography variant="caption">{likes}</Typography>
+          </Box>
 
-        <Stack direction="row" spacing={1} alignItems="center">
-          <IconButton>
-            <ChatIcon fontSize="small" />
-          </IconButton>
-          <Typography variant="caption">{comments}</Typography>
+          <Box>
+            <IconButton>
+              <BookmarkBorderIcon fontSize="small" />
+            </IconButton>
+            <Typography variant="caption">{saved}</Typography>
+          </Box>
         </Stack>
       </CardActions>
 
