@@ -1,0 +1,23 @@
+{
+  "user": "Alfred",
+  "age": "24",
+  "email": "alfred@gmail.com",
+
+  "locations": [
+    {
+      "location": "Singapore",
+      "description": "Wonderful place",
+      "ratings": 4
+    },
+    {
+      "location": "Korea",
+      "description": "Wonderful place",
+      "ratings": 4
+    },
+    {
+      "location": "China",
+      "description": "Wonderful place",
+      "ratings": 4
+    }
+  ]
+}
