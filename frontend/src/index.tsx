@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import { DarkThemeProvider } from "./context/DarkTheme";
 import "./index.css";
 import Homepage from "./pages/Homepage";
 import Saved from "./pages/Saved";
@@ -15,8 +16,10 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-    <App />
+    <DarkThemeProvider>
+      <RouterProvider router={router} />
+      <App />
+    </DarkThemeProvider>
   </React.StrictMode>
 );
 

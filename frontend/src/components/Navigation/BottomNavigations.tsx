@@ -10,7 +10,7 @@ type Props = {};
 const BottomNavigations = (props: Props): ReactElement => {
   const [page, setPage] = useState("home");
   return (
-    <Paper elevation={2} sx={{ border: "1px solid", position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 2 }}>
+    <Paper elevation={2} sx={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 2 }}>
       <BottomNavigation value={page} onChange={(event, newPage) => setPage(newPage)}>
         <BottomNavigationAction href="/" value="home" icon={<HomeIcon />} />
         <BottomNavigationAction value="message" icon={<ChatBubbleIcon />} />
