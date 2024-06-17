@@ -1,35 +1,27 @@
-import HomeIcon from "@mui/icons-material/Home";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import PeopleIcon from "@mui/icons-material/People";
-import { Avatar, Divider, IconButton, Stack, Typography } from "@mui/material";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import { IconButton, Stack, Switch } from "@mui/material";
 import { ReactElement } from "react";
+import { useTheme } from "../../context/DarkTheme";
 import Searchbar from "../Searchbar/Searchbar";
 
 type Props = {};
 
 const NavigationBar = (props: Props): ReactElement => {
+  const { mode, toggleMode } = useTheme();
+
   return (
-    <Stack direction="row" alignItems="center" justifyContent="space-around">
+    <Stack direction="row" alignItems="center" justifyContent="center" pb={3}>
       <Searchbar />
-
-      <Stack direction="row" width="20vw" alignItems="center" justifyContent="space-around">
-        <IconButton>
-          <HomeIcon />
+      {mode === "dark" ? (
+        <IconButton onClick={toggleMode} color="primary">
+          <LightModeIcon />
         </IconButton>
-
-        <IconButton>
-          <PeopleIcon />
+      ) : (
+        <IconButton onClick={toggleMode} color="primary">
+          <DarkModeIcon />
         </IconButton>
-
-        <IconButton>
-          <NotificationsIcon />
-        </IconButton>
-
-        <Divider orientation="vertical" flexItem />
-
-        <Avatar />
-        <Typography>username</Typography>
-      </Stack>
+      )}
     </Stack>
   );
 };

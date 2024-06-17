@@ -11,7 +11,7 @@ const FriendsPostsList = (props: Props): ReactElement => {
     { username: "licia", imageURL: ["https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"], caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nisl nulla, molestie quis vulputate nec, ullamcorper a dolor.", likes: 1, posted: "12 May 2024 1:29am", location: "Korea", saved: 10 },
   ];
   return (
-    <Grid container direction="column" spacing={4} justifyContent="center" alignItems="center">
+    <Grid container direction="column" spacing={4} justifyContent="center" alignItems="center" pb={10}>
       {posts.map((post) => (
         <Grid item justifyContent="center">
           <Post {...post} />
